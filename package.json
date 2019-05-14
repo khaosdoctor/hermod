@@ -17,6 +17,30 @@
     "type": "git",
     "url": "git@ssh.dev.azure.com:v3/nxcd/Nextcode/daredevil-sdk"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "dist/**/*.*",
+      "src/index.ts",
+      "src/presentation/server.ts",
+      "coverage"
+    ],
+    "reporter": [
+      "text",
+      "html",
+      "lcov"
+    ],
+    "all": true
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
