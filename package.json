@@ -1,7 +1,7 @@
 {
-  "name": "daredevil-sdk",
+  "name": "hermes",
   "version": "1.0.0",
-  "description": "SDK for daredevil log controller",
+  "description": "SDK for rabbitMQ messaging",
   "main": "dist/index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
