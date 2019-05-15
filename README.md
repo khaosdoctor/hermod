@@ -165,7 +165,7 @@ Hermod takes a config object like the following:
 ### postMessage
 
 ```ts
-postMessage (message: any, queueName?: string, persistent?: boolean): Promise<boolean>`
+postMessage (message: any, queueName?: string, persistent?: boolean): Promise<boolean>
 ```
 
 **Description:** Posts `message` to `queueName`. If `queueName` is `null` or `undefined`, the `config.queueName` will be used
@@ -181,7 +181,7 @@ postMessage (message: any, queueName?: string, persistent?: boolean): Promise<bo
 ### listenToQueue
 
 ```ts
-listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean): Promise<{ consumerTag: string }>`
+listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean): Promise<{ consumerTag: string }>
 ```
 
 **Description:** Start consuming `queueName`. Everytime a new message arrives, `handler` will be called
@@ -196,7 +196,7 @@ listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean): Pro
 ### changeQueue
 
 ```ts
-changeQueue (queueName: string, durable?: boolean): Promise<{ queue: string, messageCount: number, consumerCount: number }>`
+changeQueue (queueName: string, durable?: boolean): Promise<{ queue: string, messageCount: number, consumerCount: number }>
 ```
 
 **Description:** Will assert a new queue on the channel
@@ -210,7 +210,7 @@ changeQueue (queueName: string, durable?: boolean): Promise<{ queue: string, mes
 ### ackMessage
 
 ```ts
-ackMessage (message: ConsumeMessage, allUpToThis: boolean = false): void`
+ackMessage (message: ConsumeMessage, allUpToThis: boolean = false): void
 ```
 
 **Description:** Acknowledges a message
@@ -222,7 +222,7 @@ ackMessage (message: ConsumeMessage, allUpToThis: boolean = false): void`
 ### nackMessage
 
 ```ts
-nackMessage (message: ConsumeMessage, allUpToThis: boolean = false, requeue: boolean = true): void`
+nackMessage (message: ConsumeMessage, allUpToThis: boolean = false, requeue: boolean = true): void
 ```
 
 **Description:** Nacks a message, requeuing it by default
@@ -235,7 +235,7 @@ nackMessage (message: ConsumeMessage, allUpToThis: boolean = false, requeue: boo
 ### rejectMessage
 
 ```ts
-rejectMessage (message: ConsumeMessage, requeue: boolean = false): void`
+rejectMessage (message: ConsumeMessage, requeue: boolean = false): void
 ```
 
 **Description:** Rejects a message, not requeuing it by default
