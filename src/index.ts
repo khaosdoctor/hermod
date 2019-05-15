@@ -1,1 +1,1 @@
-export * from './controller/daredevil'
+export * from './controller/MessageClient'
