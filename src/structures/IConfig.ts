@@ -1,13 +1,13 @@
 export interface IConfig {
   queueHostname: string
-  queueName: string
+  queueName?: string
   queueProtocol?: 'amqp' | 'amqps'
   queuePort?: number
   username?: string
   password?: string
   maxConnectionAttemps?: number
   connectionRetryInterval?: number
-  durable: boolean
+  durable?: boolean
   noAck?: boolean
-  persistent: boolean
+  persistent?: boolean
 }
