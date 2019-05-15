@@ -1,3 +1,5 @@
+![](assets/logo.png)
+
 # Hermod
 
 > MQTT message client to, you know, send messages
