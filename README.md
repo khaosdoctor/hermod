@@ -26,7 +26,7 @@
 ### Instalation:
 
 ```sh
-npm i hermod
+npm i @nxcd/hermod
 ```
 
 ### Posting a message

@@ -1,5 +1,5 @@
 {
-  "name": "hermod",
+  "name": "@nxcd/hermod",
   "version": "1.0.0",
   "description": "SDK for messaging",
   "main": "dist/index.js",
