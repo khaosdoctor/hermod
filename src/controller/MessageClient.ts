@@ -7,7 +7,7 @@ import { Connection, Channel, Replies, ConsumeMessage } from 'amqplib'
 type LocalConfig = {
   hostname: string
   port: number
-  protocol: "amqp" | "amqps"
+  protocol: 'amqp' | 'amqps'
   username?: string
   password?: string
   queueName?: string
@@ -102,11 +102,11 @@ export class MessageClient {
       username: config.username,
       password: config.password,
       queueName: config.queueName,
-      durable: config.durable === null || config.durable === undefined ? true : config.durable,
-      persistent: config.persistent === null || config.persistent === undefined ? true : config.persistent,
+      durable: (config.durable === false) ? false : true,
+      persistent: (config.persistent === false) ? false : true,
       maxAttemps: config.maxConnectionAttemps || 5,
       retryInterval: config.connectionRetryInterval || 1500,
-      noAck: config.noAck === null || config.noAck === undefined ? false : config.noAck,
+      noAck: config.noAck || false
     }
   }
 }
