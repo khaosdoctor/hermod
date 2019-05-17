@@ -47,10 +47,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amqplib": "^0.5.3"
+    "amqplib": "^0.5.3",
+    "@types/amqplib": "^0.5.11"
   },
   "devDependencies": {
-    "@types/amqplib": "^0.5.11",
     "@types/chai": "^4.1.7",
     "@types/debug": "^4.1.4",
     "@types/nock": "^9.3.1",
