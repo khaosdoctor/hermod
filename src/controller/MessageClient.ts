@@ -32,12 +32,15 @@ export class MessageClient {
   }
 
   async postMessage (message: any, queueName?: string, persistent?: boolean) {
+    const parsedMessage = this._parse(message)
     await this._connect()
+    
     const queue = queueName || this.config.queueName
     if (!queue) throw new ParameterError('QueueName is required to send a message')
+    
     await this._createChannel()
     await this.changeQueue(queue)
-    return this.channel.sendToQueue(queue, Buffer.from(message), { persistent: persistent || this.config.persistent })
+    return this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
   }
 
   async listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean) {
@@ -70,6 +73,18 @@ export class MessageClient {
     if (!this.channel) throw new ChannelError('There is no channel to reject this message')
     if (this.config.noAck) throw new ParameterError('You cannot reject a message when noAck is set to `true`')
     return this.channel.reject(message, requeue)
+  }
+  
+  private async _parse (message: any): Buffer {
+    try {
+      let value = ''
+      if (typeof message === 'object') value = JSON.stringify(message)
+      if (typeof message === 'number' && !isNaN(message)) value = message.toString()
+
+      return Buffer.from(value)
+    } catch (e) {
+      throw new ParameterError('Message could not be converted to Buffer: ' + e.message)
+    }
   }
 
   private async _connect (): Promise<Connection> {
