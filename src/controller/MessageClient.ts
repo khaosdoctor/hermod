@@ -75,7 +75,7 @@ export class MessageClient {
     return this.channel.reject(message, requeue)
   }
   
-  private async _parse (message: any): Buffer {
+  private _parse (message: any): Buffer {
     try {
       let value = ''
       if (typeof message === 'object') value = JSON.stringify(message)
