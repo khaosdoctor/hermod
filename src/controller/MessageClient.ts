@@ -43,10 +43,10 @@ export class MessageClient {
     return this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
   }
 
-  async listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean) {
+  async listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean, durable?: boolean) {
     await this._connect()
     await this._createChannel()
-    await this.changeQueue(queueName)
+    await this.changeQueue(queueName, durable)
     return this.channel.consume(queueName, handler, { noAck: noAck || this.config.noAck })
   }
 
