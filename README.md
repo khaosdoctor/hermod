@@ -34,7 +34,7 @@ npm i @nxcd/hermod
 ### Posting a message
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
@@ -45,7 +45,7 @@ messenger.postMessage('message', 'queueName') // Returns a promise
 ### Listening to a queue
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
@@ -62,7 +62,7 @@ messenger.listenToQueue('queueName', handler)
 ### Switching queues
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
@@ -81,7 +81,7 @@ messenger.changeQueue('anotherQueue').then((queueObject) => /* ... */)
 **Acking**
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
@@ -98,7 +98,7 @@ messenger.listenToQueue('queueName', handler)
 **Nacking**
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
@@ -114,7 +114,7 @@ messenger.listenToQueue('queueName', handler)
 **Rejecting**
 
 ```js
-const { MessageClient: Hermod } = require('hermod')
+const { MessageClient: Hermod } = require('@nxcd/hermod')
 const config = {
   queueHostname: 'localhost'
 }
