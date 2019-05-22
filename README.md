@@ -52,7 +52,7 @@ const config = {
 const messenger = new Hermod(config)
 
 function handler (message) {
-  console.log(message.contents.toString())
+  console.log(message.content.toString())
 }
 
 // Will call `handler` everytime a message arrives
@@ -68,7 +68,7 @@ const config = {
 }
 
 function handler (message) {
-  console.log(message.contents.toString())
+  console.log(message.content.toString())
 }
 
 const messenger = new Hermod(config)
@@ -88,7 +88,7 @@ const config = {
 const messenger = new Hermod(config)
 
 function handler (message) {
-  console.log(message.contents.toString())
+  console.log(message.content.toString())
   messenger.ackMessage(message)
 }
 
@@ -105,7 +105,7 @@ const config = {
 const messenger = new Hermod(config)
 
 function handler (message) {
-  console.log(message.contents.toString())
+  console.log(message.content.toString())
   messenger.nackMessage(message)
 }
 
@@ -121,7 +121,7 @@ const config = {
 const messenger = new Hermod(config)
 
 function handler (message) {
-  console.log(message.contents.toString())
+  console.log(message.content.toString())
   messenger.rejectMessage(message)
 }
 
@@ -183,7 +183,7 @@ postMessage (message: any, queueName?: string, persistent?: boolean): Promise<bo
 ### listenToQueue
 
 ```ts
-listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean): Promise<{ consumerTag: string }>
+listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean, durable?: boolean): Promise<{ consumerTag: string }>
 ```
 
 **Description:** Start consuming `queueName`. Everytime a new message arrives, `handler` will be called
@@ -192,6 +192,7 @@ listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean): Pro
 - `queueName` (*required*): Queue name to be listened. This method does **not** read the default `config.queueName`
 - `handler` (*required*): Function which will handle the message. Must have a signature like `(message) => any`
 - `noAck`: This will override `config.noAck` value for this specific consumer
+- `durable`: This will override `config.durable` value for this specific consumer
 
 **Returns:** Promise with the new consumer tag
 
