@@ -40,7 +40,9 @@ export class MessageClient {
 
     await this._createChannel()
     await this.changeQueue(queue)
-    return this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
+    const response = await this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
+    await this._closeChannel()
+    return response
   }
 
   async listenToQueue (queueName: string, handler: MessageHandler, noAck?: boolean, durable?: boolean) {
@@ -106,6 +108,13 @@ export class MessageClient {
     if (this.channel) return this.channel
     this.channel = await this.connection.createChannel()
     return this.channel
+  }
+  
+  private async _closeChannel () {
+    if (!this.channel) return
+    try {
+      return this.channel.close()
+    } catch { return } // Channel is already closed
   }
 
   private _makeConfig (config: IConfig): LocalConfig {
