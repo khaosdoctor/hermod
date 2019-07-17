@@ -27,6 +27,6 @@ jobs:
 notifications:
   email:
     recipients:
-    - lucas.santos@nxcd.com.br
+    - hello@lsantos.dev
     on_success: change
     on_failure: always
