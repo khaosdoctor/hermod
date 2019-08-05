@@ -40,7 +40,7 @@ export class MessageClient {
 
     await this._createChannel()
     await this.changeQueue(queue)
-    const response = await this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
+    const response = this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
     await this._closeChannel()
     return response
   }
@@ -109,7 +109,7 @@ export class MessageClient {
     this.channel = await this.connection.createChannel()
     return this.channel
   }
-  
+
   private async _closeChannel () {
     if (!this.channel) return
     try {
