@@ -41,7 +41,6 @@ export class MessageClient {
     await this._createChannel()
     await this.changeQueue(queue)
     const response = this.channel.sendToQueue(queue, parsedMessage, { persistent: persistent || this.config.persistent })
-    await this._closeChannel()
     return response
   }
 
