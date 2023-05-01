@@ -55,7 +55,7 @@
     "@types/debug": "^4.1.4",
     "@types/nock": "^9.3.1",
     "@types/node": "^10.11.6",
-    "axiosist": "^0.3.1",
+    "axiosist": "^1.0.0",
     "chai": "^4.2.0",
     "concurrently": "^4.0.1",
     "husky": "^1.1.2",
