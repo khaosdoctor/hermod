@@ -2,7 +2,7 @@
 
 # Hermod
 
-> MQTT message client to, you know, send messages
+> AMQP message client to, you know, send messages
 
 ## Summary
 
